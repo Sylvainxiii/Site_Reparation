@@ -13,27 +13,12 @@ class FrMarqueMar
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $mar_id = null;
-
     #[ORM\Column(length: 50)]
     private ?string $mar_nom = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getMarId(): ?int
-    {
-        return $this->mar_id;
-    }
-
-    public function setMarId(int $mar_id): static
-    {
-        $this->mar_id = $mar_id;
-
-        return $this;
     }
 
     public function getMarNom(): ?string

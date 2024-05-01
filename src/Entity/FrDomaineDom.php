@@ -14,9 +14,6 @@ class FrDomaineDom
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $dom_id = null;
-
     #[ORM\Column(length: 50)]
     private ?string $dom_nom = null;
 
@@ -29,18 +26,6 @@ class FrDomaineDom
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getDomId(): ?int
-    {
-        return $this->dom_id;
-    }
-
-    public function setDomId(int $dom_id): static
-    {
-        $this->dom_id = $dom_id;
-
-        return $this;
     }
 
     public function getDomNom(): ?string

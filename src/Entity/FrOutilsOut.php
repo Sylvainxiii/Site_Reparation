@@ -14,9 +14,6 @@ class FrOutilsOut
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $out_id = null;
-
     #[ORM\Column(length: 50)]
     private ?string $out_nom = null;
 
@@ -38,18 +35,6 @@ class FrOutilsOut
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getOutId(): ?int
-    {
-        return $this->out_id;
-    }
-
-    public function setOutId(int $out_id): static
-    {
-        $this->out_id = $out_id;
-
-        return $this;
     }
 
     public function getOutNom(): ?string

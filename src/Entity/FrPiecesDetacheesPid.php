@@ -14,9 +14,6 @@ class FrPiecesDetacheesPid
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $pid_id = null;
-
     #[ORM\Column(length: 50)]
     private ?string $pid_reference = null;
 
@@ -39,19 +36,7 @@ class FrPiecesDetacheesPid
     {
         return $this->id;
     }
-
-    public function getPidId(): ?int
-    {
-        return $this->pid_id;
-    }
-
-    public function setPidId(int $pid_id): static
-    {
-        $this->pid_id = $pid_id;
-
-        return $this;
-    }
-
+    
     public function getPidReference(): ?string
     {
         return $this->pid_reference;

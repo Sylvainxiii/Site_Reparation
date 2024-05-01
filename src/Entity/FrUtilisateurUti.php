@@ -14,9 +14,6 @@ class FrUtilisateurUti
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $uti_id = null;
-
     #[ORM\Column(length: 50)]
     private ?string $uti_email = null;
 
@@ -44,18 +41,6 @@ class FrUtilisateurUti
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUtiId(): ?int
-    {
-        return $this->uti_id;
-    }
-
-    public function setUtiId(int $uti_id): static
-    {
-        $this->uti_id = $uti_id;
-
-        return $this;
     }
 
     public function getUtiEmail(): ?string

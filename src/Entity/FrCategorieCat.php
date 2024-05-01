@@ -13,9 +13,6 @@ class FrCategorieCat
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $cat_id = null;
-
     #[ORM\Column(length: 50)]
     private ?string $cat_nom = null;
 
@@ -29,18 +26,6 @@ class FrCategorieCat
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCatId(): ?int
-    {
-        return $this->cat_id;
-    }
-
-    public function setCatId(int $cat_id): static
-    {
-        $this->cat_id = $cat_id;
-
-        return $this;
     }
 
     public function getCatNom(): ?string
