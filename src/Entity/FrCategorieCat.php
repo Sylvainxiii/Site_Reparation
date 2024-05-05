@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FrCategorieCatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FrCategorieCatRepository::class)]
@@ -22,6 +24,14 @@ class FrCategorieCat
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?FrDomaineDom $fk_dom_id = null;
+
+    #[ORM\OneToMany(targetEntity: FrSousCategoriSca::class, mappedBy: 'fk_cat_id')]
+    private Collection $frSousCategoriScas;
+
+    public function __construct()
+    {
+        $this->frSousCategoriScas = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +70,36 @@ class FrCategorieCat
     public function setFkDomId(?FrDomaineDom $fk_dom_id): static
     {
         $this->fk_dom_id = $fk_dom_id;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FrSousCategoriSca>
+     */
+    public function getFrSousCategoriScas(): Collection
+    {
+        return $this->frSousCategoriScas;
+    }
+
+    public function addFrSousCategoriSca(FrSousCategoriSca $frSousCategoriSca): static
+    {
+        if (!$this->frSousCategoriScas->contains($frSousCategoriSca)) {
+            $this->frSousCategoriScas->add($frSousCategoriSca);
+            $frSousCategoriSca->setFkCatId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFrSousCategoriSca(FrSousCategoriSca $frSousCategoriSca): static
+    {
+        if ($this->frSousCategoriScas->removeElement($frSousCategoriSca)) {
+            // set the owning side to null (unless already changed)
+            if ($frSousCategoriSca->getFkCatId() === $this) {
+                $frSousCategoriSca->setFkCatId(null);
+            }
+        }
 
         return $this;
     }
