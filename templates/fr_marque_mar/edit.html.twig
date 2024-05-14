@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit FrMarqueMar{% endblock %}
+
+{% block body %}
+    <h1>Edit FrMarqueMar</h1>
+
+    {{ include('fr_marque_mar/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_fr_marque_mar_index') }}">back to list</a>
+
+    {{ include('fr_marque_mar/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrRemplacementRem index{% endblock %}
+
+{% block body %}
+    <h1>FrRemplacementRem index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rem_qte</th>
+                <th>Rem_cause</th>
+                <th>Rem_date_add</th>
+                <th>Rem_date_edit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fr_remplacement_rem in fr_remplacement_rems %}
+            <tr>
+                <td>{{ fr_remplacement_rem.id }}</td>
+                <td>{{ fr_remplacement_rem.remQte }}</td>
+                <td>{{ fr_remplacement_rem.remCause }}</td>
+                <td>{{ fr_remplacement_rem.remDateAdd ? fr_remplacement_rem.remDateAdd|date('Y-m-d') : '' }}</td>
+                <td>{{ fr_remplacement_rem.remDateEdit ? fr_remplacement_rem.remDateEdit|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fr_remplacement_rem_show', {'id': fr_remplacement_rem.id}) }}">show</a>
+                    <a href="{{ path('app_fr_remplacement_rem_edit', {'id': fr_remplacement_rem.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_remplacement_rem_new') }}">Create new</a>
+{% endblock %}

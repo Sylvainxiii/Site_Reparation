@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrSousCategoriSca index{% endblock %}
+
+{% block body %}
+    <h1>FrSousCategoriSca index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sca_nom</th>
+                <th>Sca_description</th>
+                <th>Sca_date_add</th>
+                <th>Sca_date_edit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fr_sous_categori_sca in fr_sous_categori_scas %}
+            <tr>
+                <td>{{ fr_sous_categori_sca.id }}</td>
+                <td>{{ fr_sous_categori_sca.scaNom }}</td>
+                <td>{{ fr_sous_categori_sca.scaDescription }}</td>
+                <td>{{ fr_sous_categori_sca.scaDateAdd ? fr_sous_categori_sca.scaDateAdd|date('Y-m-d') : '' }}</td>
+                <td>{{ fr_sous_categori_sca.scaDateEdit ? fr_sous_categori_sca.scaDateEdit|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fr_sous_categori_sca_show', {'id': fr_sous_categori_sca.id}) }}">show</a>
+                    <a href="{{ path('app_fr_sous_categori_sca_edit', {'id': fr_sous_categori_sca.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_sous_categori_sca_new') }}">Create new</a>
+{% endblock %}

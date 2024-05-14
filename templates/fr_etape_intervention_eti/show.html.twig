@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrEtapeInterventionEti{% endblock %}
+
+{% block body %}
+    <h1>FrEtapeInterventionEti</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fr_etape_intervention_eti.id }}</td>
+            </tr>
+            <tr>
+                <th>Eti_titre</th>
+                <td>{{ fr_etape_intervention_eti.etiTitre }}</td>
+            </tr>
+            <tr>
+                <th>Eti_description</th>
+                <td>{{ fr_etape_intervention_eti.etiDescription }}</td>
+            </tr>
+            <tr>
+                <th>Eti_duree</th>
+                <td>{{ fr_etape_intervention_eti.etiDuree ? fr_etape_intervention_eti.etiDuree|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Eti_photo_1</th>
+                <td>{{ fr_etape_intervention_eti.etiPhoto1 }}</td>
+            </tr>
+            <tr>
+                <th>Eti_photo_2</th>
+                <td>{{ fr_etape_intervention_eti.etiPhoto2 }}</td>
+            </tr>
+            <tr>
+                <th>Eti_photo_3</th>
+                <td>{{ fr_etape_intervention_eti.etiPhoto3 }}</td>
+            </tr>
+            <tr>
+                <th>Eti_date_add</th>
+                <td>{{ fr_etape_intervention_eti.etiDateAdd ? fr_etape_intervention_eti.etiDateAdd|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Eti_date_edit</th>
+                <td>{{ fr_etape_intervention_eti.etiDateEdit ? fr_etape_intervention_eti.etiDateEdit|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_etape_intervention_eti_index') }}">back to list</a>
+
+    <a href="{{ path('app_fr_etape_intervention_eti_edit', {'id': fr_etape_intervention_eti.id}) }}">edit</a>
+
+    {{ include('fr_etape_intervention_eti/_delete_form.html.twig') }}
+{% endblock %}

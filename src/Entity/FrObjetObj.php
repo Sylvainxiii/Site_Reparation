@@ -31,6 +31,12 @@ class FrObjetObj
     #[ORM\JoinColumn(nullable: false)]
     private ?FrSousCategoriSca $fk_sca_id = null;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $obj_date_add = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $obj_date_edit = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +98,30 @@ class FrObjetObj
     public function setFkScaId(?FrSousCategoriSca $fk_sca_id): static
     {
         $this->fk_sca_id = $fk_sca_id;
+
+        return $this;
+    }
+
+    public function getObjDateAdd(): ?\DateTimeInterface
+    {
+        return $this->obj_date_add;
+    }
+
+    public function setObjDateAdd(?\DateTimeInterface $obj_date_add): static
+    {
+        $this->obj_date_add = $obj_date_add;
+
+        return $this;
+    }
+
+    public function getObjDateEdit(): ?\DateTimeInterface
+    {
+        return $this->obj_date_edit;
+    }
+
+    public function setObjDateEdit(?\DateTimeInterface $obj_date_edit): static
+    {
+        $this->obj_date_edit = $obj_date_edit;
 
         return $this;
     }

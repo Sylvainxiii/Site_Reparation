@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New FrObjetObj{% endblock %}
+
+{% block body %}
+    <h1>Create new FrObjetObj</h1>
+
+    {{ include('fr_objet_obj/_form.html.twig') }}
+
+    <a href="{{ path('app_fr_objet_obj_index') }}">back to list</a>
+{% endblock %}

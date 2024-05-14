@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\FrCategorieCatRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FrCategorieCatRepository::class)]
@@ -27,6 +28,12 @@ class FrCategorieCat
 
     #[ORM\OneToMany(targetEntity: FrSousCategoriSca::class, mappedBy: 'fk_cat_id')]
     private Collection $frSousCategoriScas;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $cat_date_edit = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $cat_date_add = null;
 
     public function __construct()
     {
@@ -100,6 +107,30 @@ class FrCategorieCat
                 $frSousCategoriSca->setFkCatId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCatDateEdit(): ?\DateTimeInterface
+    {
+        return $this->cat_date_edit;
+    }
+
+    public function setCatDateEdit(?\DateTimeInterface $cat_date_edit): static
+    {
+        $this->cat_date_edit = $cat_date_edit;
+
+        return $this;
+    }
+
+    public function getCatDateAdd(): ?\DateTimeInterface
+    {
+        return $this->cat_date_add;
+    }
+
+    public function setCatDateAdd(?\DateTimeInterface $cat_date_add): static
+    {
+        $this->cat_date_add = $cat_date_add;
 
         return $this;
     }

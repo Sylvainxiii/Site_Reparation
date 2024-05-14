@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrInterventionInt{% endblock %}
+
+{% block body %}
+    <h1>FrInterventionInt</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fr_intervention_int.id }}</td>
+            </tr>
+            <tr>
+                <th>Int_type</th>
+                <td>{{ fr_intervention_int.intType }}</td>
+            </tr>
+            <tr>
+                <th>Int_date_debut</th>
+                <td>{{ fr_intervention_int.intDateDebut ? fr_intervention_int.intDateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Int_date_fin</th>
+                <td>{{ fr_intervention_int.intDateFin ? fr_intervention_int.intDateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Int_numero_de_serie</th>
+                <td>{{ fr_intervention_int.intNumeroDeSerie }}</td>
+            </tr>
+            <tr>
+                <th>Int_difficulte</th>
+                <td>{{ fr_intervention_int.intDifficulte }}</td>
+            </tr>
+            <tr>
+                <th>Int_description</th>
+                <td>{{ fr_intervention_int.intDescription }}</td>
+            </tr>
+            <tr>
+                <th>Int_visibilite</th>
+                <td>{{ fr_intervention_int.intVisibilite }}</td>
+            </tr>
+            <tr>
+                <th>Int_date_add</th>
+                <td>{{ fr_intervention_int.intDateAdd ? fr_intervention_int.intDateAdd|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Int_date_edit</th>
+                <td>{{ fr_intervention_int.intDateEdit ? fr_intervention_int.intDateEdit|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_intervention_int_index') }}">back to list</a>
+
+    <a href="{{ path('app_fr_intervention_int_edit', {'id': fr_intervention_int.id}) }}">edit</a>
+
+    {{ include('fr_intervention_int/_delete_form.html.twig') }}
+{% endblock %}

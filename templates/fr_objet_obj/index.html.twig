@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrObjetObj index{% endblock %}
+
+{% block body %}
+    <h1>FrObjetObj index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Obj_reference</th>
+                <th>Obj_caracteristiques</th>
+                <th>Obj_manuel</th>
+                <th>Obj_date_add</th>
+                <th>Obj_date_edit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fr_objet_obj in fr_objet_objs %}
+            <tr>
+                <td>{{ fr_objet_obj.id }}</td>
+                <td>{{ fr_objet_obj.objReference }}</td>
+                <td>{{ fr_objet_obj.objCaracteristiques }}</td>
+                <td>{{ fr_objet_obj.objManuel }}</td>
+                <td>{{ fr_objet_obj.objDateAdd ? fr_objet_obj.objDateAdd|date('Y-m-d') : '' }}</td>
+                <td>{{ fr_objet_obj.objDateEdit ? fr_objet_obj.objDateEdit|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fr_objet_obj_show', {'id': fr_objet_obj.id}) }}">show</a>
+                    <a href="{{ path('app_fr_objet_obj_edit', {'id': fr_objet_obj.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_objet_obj_new') }}">Create new</a>
+{% endblock %}

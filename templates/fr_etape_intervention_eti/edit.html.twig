@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit FrEtapeInterventionEti{% endblock %}
+
+{% block body %}
+    <h1>Edit FrEtapeInterventionEti</h1>
+
+    {{ include('fr_etape_intervention_eti/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_fr_etape_intervention_eti_index') }}">back to list</a>
+
+    {{ include('fr_etape_intervention_eti/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrObjetObj{% endblock %}
+
+{% block body %}
+    <h1>FrObjetObj</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fr_objet_obj.id }}</td>
+            </tr>
+            <tr>
+                <th>Obj_reference</th>
+                <td>{{ fr_objet_obj.objReference }}</td>
+            </tr>
+            <tr>
+                <th>Obj_caracteristiques</th>
+                <td>{{ fr_objet_obj.objCaracteristiques }}</td>
+            </tr>
+            <tr>
+                <th>Obj_manuel</th>
+                <td>{{ fr_objet_obj.objManuel }}</td>
+            </tr>
+            <tr>
+                <th>Obj_date_add</th>
+                <td>{{ fr_objet_obj.objDateAdd ? fr_objet_obj.objDateAdd|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Obj_date_edit</th>
+                <td>{{ fr_objet_obj.objDateEdit ? fr_objet_obj.objDateEdit|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_objet_obj_index') }}">back to list</a>
+
+    <a href="{{ path('app_fr_objet_obj_edit', {'id': fr_objet_obj.id}) }}">edit</a>
+
+    {{ include('fr_objet_obj/_delete_form.html.twig') }}
+{% endblock %}

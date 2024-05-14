@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit FrPiecesDetacheesPid{% endblock %}
+
+{% block body %}
+    <h1>Edit FrPiecesDetacheesPid</h1>
+
+    {{ include('fr_pieces_detachees_pid/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_fr_pieces_detachees_pid_index') }}">back to list</a>
+
+    {{ include('fr_pieces_detachees_pid/_delete_form.html.twig') }}
+{% endblock %}

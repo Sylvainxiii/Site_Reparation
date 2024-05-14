@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit FrRemplacementRem{% endblock %}
+
+{% block body %}
+    <h1>Edit FrRemplacementRem</h1>
+
+    {{ include('fr_remplacement_rem/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_fr_remplacement_rem_index') }}">back to list</a>
+
+    {{ include('fr_remplacement_rem/_delete_form.html.twig') }}
+{% endblock %}

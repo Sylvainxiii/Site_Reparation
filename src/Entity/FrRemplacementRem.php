@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\FrRemplacementRemRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FrRemplacementRemRepository::class)]
@@ -25,6 +26,12 @@ class FrRemplacementRem
 
     #[ORM\ManyToOne(inversedBy: 'frRemplacementRems')]
     private ?FrEtapeInterventionEti $fk_eti_id = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $rem_date_add = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $rem_date_edit = null;
 
     public function getId(): ?int
     {
@@ -75,6 +82,30 @@ class FrRemplacementRem
     public function setFkEtiId(?FrEtapeInterventionEti $fk_eti_id): static
     {
         $this->fk_eti_id = $fk_eti_id;
+
+        return $this;
+    }
+
+    public function getRemDateAdd(): ?\DateTimeInterface
+    {
+        return $this->rem_date_add;
+    }
+
+    public function setRemDateAdd(?\DateTimeInterface $rem_date_add): static
+    {
+        $this->rem_date_add = $rem_date_add;
+
+        return $this;
+    }
+
+    public function getRemDateEdit(): ?\DateTimeInterface
+    {
+        return $this->rem_date_edit;
+    }
+
+    public function setRemDateEdit(?\DateTimeInterface $rem_date_edit): static
+    {
+        $this->rem_date_edit = $rem_date_edit;
 
         return $this;
     }

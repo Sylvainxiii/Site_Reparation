@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrSousCategoriSca{% endblock %}
+
+{% block body %}
+    <h1>FrSousCategoriSca</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fr_sous_categori_sca.id }}</td>
+            </tr>
+            <tr>
+                <th>Sca_nom</th>
+                <td>{{ fr_sous_categori_sca.scaNom }}</td>
+            </tr>
+            <tr>
+                <th>Sca_description</th>
+                <td>{{ fr_sous_categori_sca.scaDescription }}</td>
+            </tr>
+            <tr>
+                <th>Sca_date_add</th>
+                <td>{{ fr_sous_categori_sca.scaDateAdd ? fr_sous_categori_sca.scaDateAdd|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Sca_date_edit</th>
+                <td>{{ fr_sous_categori_sca.scaDateEdit ? fr_sous_categori_sca.scaDateEdit|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_sous_categori_sca_index') }}">back to list</a>
+
+    <a href="{{ path('app_fr_sous_categori_sca_edit', {'id': fr_sous_categori_sca.id}) }}">edit</a>
+
+    {{ include('fr_sous_categori_sca/_delete_form.html.twig') }}
+{% endblock %}

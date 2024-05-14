@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New FrInterventionInt{% endblock %}
+
+{% block body %}
+    <h1>Create new FrInterventionInt</h1>
+
+    {{ include('fr_intervention_int/_form.html.twig') }}
+
+    <a href="{{ path('app_fr_intervention_int_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New FrSousCategoriSca{% endblock %}
+
+{% block body %}
+    <h1>Create new FrSousCategoriSca</h1>
+
+    {{ include('fr_sous_categori_sca/_form.html.twig') }}
+
+    <a href="{{ path('app_fr_sous_categori_sca_index') }}">back to list</a>
+{% endblock %}

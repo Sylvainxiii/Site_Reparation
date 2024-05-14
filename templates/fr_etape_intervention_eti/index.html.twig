@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrEtapeInterventionEti index{% endblock %}
+
+{% block body %}
+    <h1>FrEtapeInterventionEti index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Eti_titre</th>
+                <th>Eti_description</th>
+                <th>Eti_duree</th>
+                <th>Eti_photo_1</th>
+                <th>Eti_photo_2</th>
+                <th>Eti_photo_3</th>
+                <th>Eti_date_add</th>
+                <th>Eti_date_edit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fr_etape_intervention_eti in fr_etape_intervention_etis %}
+            <tr>
+                <td>{{ fr_etape_intervention_eti.id }}</td>
+                <td>{{ fr_etape_intervention_eti.etiTitre }}</td>
+                <td>{{ fr_etape_intervention_eti.etiDescription }}</td>
+                <td>{{ fr_etape_intervention_eti.etiDuree ? fr_etape_intervention_eti.etiDuree|date('H:i:s') : '' }}</td>
+                <td>{{ fr_etape_intervention_eti.etiPhoto1 }}</td>
+                <td>{{ fr_etape_intervention_eti.etiPhoto2 }}</td>
+                <td>{{ fr_etape_intervention_eti.etiPhoto3 }}</td>
+                <td>{{ fr_etape_intervention_eti.etiDateAdd ? fr_etape_intervention_eti.etiDateAdd|date('Y-m-d') : '' }}</td>
+                <td>{{ fr_etape_intervention_eti.etiDateEdit ? fr_etape_intervention_eti.etiDateEdit|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fr_etape_intervention_eti_show', {'id': fr_etape_intervention_eti.id}) }}">show</a>
+                    <a href="{{ path('app_fr_etape_intervention_eti_edit', {'id': fr_etape_intervention_eti.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_etape_intervention_eti_new') }}">Create new</a>
+{% endblock %}

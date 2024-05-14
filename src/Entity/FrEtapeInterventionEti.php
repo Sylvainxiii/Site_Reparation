@@ -44,6 +44,12 @@ class FrEtapeInterventionEti
     #[ORM\OneToMany(targetEntity: FrRemplacementRem::class, mappedBy: 'fk_eti_id')]
     private Collection $frRemplacementRems;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $eti_date_add = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $eti_date_edit = null;
+
     public function __construct()
     {
         $this->frRemplacementRems = new ArrayCollection();
@@ -176,6 +182,30 @@ class FrEtapeInterventionEti
                 $frRemplacementRem->setFkEtiId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEtiDateAdd(): ?\DateTimeInterface
+    {
+        return $this->eti_date_add;
+    }
+
+    public function setEtiDateAdd(?\DateTimeInterface $eti_date_add): static
+    {
+        $this->eti_date_add = $eti_date_add;
+
+        return $this;
+    }
+
+    public function getEtiDateEdit(): ?\DateTimeInterface
+    {
+        return $this->eti_date_edit;
+    }
+
+    public function setEtiDateEdit(?\DateTimeInterface $eti_date_edit): static
+    {
+        $this->eti_date_edit = $eti_date_edit;
 
         return $this;
     }

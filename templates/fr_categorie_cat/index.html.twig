@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrCategorieCat index{% endblock %}
+
+{% block body %}
+    <h1>FrCategorieCat index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cat_nom</th>
+                <th>Cat_description</th>
+                <th>Cat_date_edit</th>
+                <th>Cat_date_add</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fr_categorie_cat in fr_categorie_cats %}
+            <tr>
+                <td>{{ fr_categorie_cat.id }}</td>
+                <td>{{ fr_categorie_cat.catNom }}</td>
+                <td>{{ fr_categorie_cat.catDescription }}</td>
+                <td>{{ fr_categorie_cat.catDateEdit ? fr_categorie_cat.catDateEdit|date('Y-m-d') : '' }}</td>
+                <td>{{ fr_categorie_cat.catDateAdd ? fr_categorie_cat.catDateAdd|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fr_categorie_cat_show', {'id': fr_categorie_cat.id}) }}">show</a>
+                    <a href="{{ path('app_fr_categorie_cat_edit', {'id': fr_categorie_cat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_categorie_cat_new') }}">Create new</a>
+{% endblock %}

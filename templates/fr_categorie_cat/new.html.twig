@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New FrCategorieCat{% endblock %}
+
+{% block body %}
+    <h1>Create new FrCategorieCat</h1>
+
+    {{ include('fr_categorie_cat/_form.html.twig') }}
+
+    <a href="{{ path('app_fr_categorie_cat_index') }}">back to list</a>
+{% endblock %}

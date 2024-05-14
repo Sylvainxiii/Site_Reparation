@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrPiecesDetacheesPid index{% endblock %}
+
+{% block body %}
+    <h1>FrPiecesDetacheesPid index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pid_reference</th>
+                <th>Pid_marque</th>
+                <th>Pid_description</th>
+                <th>Pid_lien_achat</th>
+                <th>Pid_date_add</th>
+                <th>Pid_date_edit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fr_pieces_detachees_pid in fr_pieces_detachees_pids %}
+            <tr>
+                <td>{{ fr_pieces_detachees_pid.id }}</td>
+                <td>{{ fr_pieces_detachees_pid.pidReference }}</td>
+                <td>{{ fr_pieces_detachees_pid.pidMarque }}</td>
+                <td>{{ fr_pieces_detachees_pid.pidDescription }}</td>
+                <td>{{ fr_pieces_detachees_pid.pidLienAchat }}</td>
+                <td>{{ fr_pieces_detachees_pid.pidDateAdd ? fr_pieces_detachees_pid.pidDateAdd|date('Y-m-d') : '' }}</td>
+                <td>{{ fr_pieces_detachees_pid.pidDateEdit ? fr_pieces_detachees_pid.pidDateEdit|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fr_pieces_detachees_pid_show', {'id': fr_pieces_detachees_pid.id}) }}">show</a>
+                    <a href="{{ path('app_fr_pieces_detachees_pid_edit', {'id': fr_pieces_detachees_pid.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_pieces_detachees_pid_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrDomaineDom index{% endblock %}
+
+{% block body %}
+    <h1>FrDomaineDom index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dom_nom</th>
+                <th>Dom_date_add</th>
+                <th>Dom_date_edit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fr_domaine_dom in fr_domaine_doms %}
+            <tr>
+                <td>{{ fr_domaine_dom.id }}</td>
+                <td>{{ fr_domaine_dom.domNom }}</td>
+                <td>{{ fr_domaine_dom.domDateAdd ? fr_domaine_dom.domDateAdd|date('Y-m-d') : '' }}</td>
+                <td>{{ fr_domaine_dom.domDateEdit ? fr_domaine_dom.domDateEdit|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fr_domaine_dom_show', {'id': fr_domaine_dom.id}) }}">show</a>
+                    <a href="{{ path('app_fr_domaine_dom_edit', {'id': fr_domaine_dom.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_domaine_dom_new') }}">Create new</a>
+{% endblock %}

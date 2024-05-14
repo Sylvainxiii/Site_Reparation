@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New FrRemplacementRem{% endblock %}
+
+{% block body %}
+    <h1>Create new FrRemplacementRem</h1>
+
+    {{ include('fr_remplacement_rem/_form.html.twig') }}
+
+    <a href="{{ path('app_fr_remplacement_rem_index') }}">back to list</a>
+{% endblock %}

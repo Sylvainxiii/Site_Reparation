@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New FrPiecesDetacheesPid{% endblock %}
+
+{% block body %}
+    <h1>Create new FrPiecesDetacheesPid</h1>
+
+    {{ include('fr_pieces_detachees_pid/_form.html.twig') }}
+
+    <a href="{{ path('app_fr_pieces_detachees_pid_index') }}">back to list</a>
+{% endblock %}

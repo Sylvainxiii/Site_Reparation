@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\FrSousCategoriScaRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FrSousCategoriScaRepository::class)]
@@ -21,6 +22,12 @@ class FrSousCategoriSca
 
     #[ORM\ManyToOne(inversedBy: 'frSousCategoriScas')]
     private ?FrCategorieCat $fk_cat_id = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $sca_date_add = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $sca_date_edit = null;
 
     public function getId(): ?int
     {
@@ -59,6 +66,30 @@ class FrSousCategoriSca
     public function setFkCatId(?FrCategorieCat $fk_cat_id): static
     {
         $this->fk_cat_id = $fk_cat_id;
+
+        return $this;
+    }
+
+    public function getScaDateAdd(): ?\DateTimeInterface
+    {
+        return $this->sca_date_add;
+    }
+
+    public function setScaDateAdd(?\DateTimeInterface $sca_date_add): static
+    {
+        $this->sca_date_add = $sca_date_add;
+
+        return $this;
+    }
+
+    public function getScaDateEdit(): ?\DateTimeInterface
+    {
+        return $this->sca_date_edit;
+    }
+
+    public function setScaDateEdit(?\DateTimeInterface $sca_date_edit): static
+    {
+        $this->sca_date_edit = $sca_date_edit;
 
         return $this;
     }

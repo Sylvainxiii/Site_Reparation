@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit FrSousCategoriSca{% endblock %}
+
+{% block body %}
+    <h1>Edit FrSousCategoriSca</h1>
+
+    {{ include('fr_sous_categori_sca/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_fr_sous_categori_sca_index') }}">back to list</a>
+
+    {{ include('fr_sous_categori_sca/_delete_form.html.twig') }}
+{% endblock %}

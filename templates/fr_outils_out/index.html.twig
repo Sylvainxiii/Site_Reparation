@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrOutilsOut index{% endblock %}
+
+{% block body %}
+    <h1>FrOutilsOut index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Out_nom</th>
+                <th>Out_reference</th>
+                <th>Out_description</th>
+                <th>Out_photo</th>
+                <th>Out_date_add</th>
+                <th>Out_date_edit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fr_outils_out in fr_outils_outs %}
+            <tr>
+                <td>{{ fr_outils_out.id }}</td>
+                <td>{{ fr_outils_out.outNom }}</td>
+                <td>{{ fr_outils_out.outReference }}</td>
+                <td>{{ fr_outils_out.outDescription }}</td>
+                <td>{{ fr_outils_out.outPhoto }}</td>
+                <td>{{ fr_outils_out.outDateAdd ? fr_outils_out.outDateAdd|date('Y-m-d') : '' }}</td>
+                <td>{{ fr_outils_out.outDateEdit ? fr_outils_out.outDateEdit|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fr_outils_out_show', {'id': fr_outils_out.id}) }}">show</a>
+                    <a href="{{ path('app_fr_outils_out_edit', {'id': fr_outils_out.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_outils_out_new') }}">Create new</a>
+{% endblock %}

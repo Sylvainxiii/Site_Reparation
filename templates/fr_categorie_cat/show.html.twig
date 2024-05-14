@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrCategorieCat{% endblock %}
+
+{% block body %}
+    <h1>FrCategorieCat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fr_categorie_cat.id }}</td>
+            </tr>
+            <tr>
+                <th>Cat_nom</th>
+                <td>{{ fr_categorie_cat.catNom }}</td>
+            </tr>
+            <tr>
+                <th>Cat_description</th>
+                <td>{{ fr_categorie_cat.catDescription }}</td>
+            </tr>
+            <tr>
+                <th>Cat_date_edit</th>
+                <td>{{ fr_categorie_cat.catDateEdit ? fr_categorie_cat.catDateEdit|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Cat_date_add</th>
+                <td>{{ fr_categorie_cat.catDateAdd ? fr_categorie_cat.catDateAdd|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fr_categorie_cat_index') }}">back to list</a>
+
+    <a href="{{ path('app_fr_categorie_cat_edit', {'id': fr_categorie_cat.id}) }}">edit</a>
+
+    {{ include('fr_categorie_cat/_delete_form.html.twig') }}
+{% endblock %}
