@@ -38,15 +38,15 @@ class FrInterventionInt
     #[ORM\ManyToOne]
     private ?FrObjetObj $fk_obj_id = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?FrUtilisateurUti $fk_uti_id = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $int_date_add = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $int_date_edit = null;
+
+    #[ORM\ManyToOne]
+    private ?FrUtilisateurUti $fk_uti_id = null;
+
 
     public function getId(): ?int
     {
@@ -149,18 +149,6 @@ class FrInterventionInt
         return $this;
     }
 
-    public function getFkUtiId(): ?FrUtilisateurUti
-    {
-        return $this->fk_uti_id;
-    }
-
-    public function setFkUtiId(?FrUtilisateurUti $fk_uti_id): static
-    {
-        $this->fk_uti_id = $fk_uti_id;
-
-        return $this;
-    }
-
     public function getIntDateAdd(): ?\DateTimeInterface
     {
         return $this->int_date_add;
@@ -184,4 +172,17 @@ class FrInterventionInt
 
         return $this;
     }
+
+    public function getFkUtiId(): ?FrUtilisateurUti
+    {
+        return $this->fk_uti_id;
+    }
+
+    public function setFkUtiId(?FrUtilisateurUti $fk_uti_id): static
+    {
+        $this->fk_uti_id = $fk_uti_id;
+
+        return $this;
+    }
+
 }
