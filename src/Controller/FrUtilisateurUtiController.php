@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/fr/utilisateur/uti')]
+#[Route('/utilisateur')]
 class FrUtilisateurUtiController extends AbstractController
 {
     #[Route('/', name: 'app_fr_utilisateur_uti_index', methods: ['GET'])]
