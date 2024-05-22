@@ -44,7 +44,7 @@ margin-left: 20px;
 
 .navbrandlink{
     display: flex;
-    align-content: center;
+    align-items: center;
     }
 
 .navbutton{
