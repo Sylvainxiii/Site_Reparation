@@ -1,3 +1,79 @@
+:root{
+    --text-font-family:"Noto Sans Display", sans-serif;
+    --text-font-weight:400;
+    --text-font-bold:600;
+    --text-font-size: 20px;
+
+    --text-color-dark: #262626;
+    --text-color-orange: #D97218;
+    --text-color-bright: #fdfdfd;
+
+    --gradient-color-bright: #f2c12e;
+    --gradient-color-middle: #f2b035;
+    --gradient-color-dark: #d97218;
+    --navbar-background:linear-gradient(0deg, var(--gradient-color-dark) 36%, var(--gradient-color-middle) 80%, var(--gradient-color-bright) 100%);
+}
+
+body{
+    margin: 0;
+    font-family: var(--text-font-family) ;
+    font-weight: var(--text-font-weight);
+    font-style: normal;
+    font-size: var(--text-font-size);
+    color: var(--text-color-dark);
+}
+
+h1, h2, h3{
+    font-family: "Tilt Warp", sans-serif;
+    font-weight: var(--text-font-weight);
+    font-style: normal;
+}
+
 .navbar{
-    background: linear-gradient(0deg, rgba(217,114,24,1) 36%, rgba(242,176,53,1) 80%, rgba(242,193,46,1) 100%);
+    display: flex;
+    flex-direction: row;
+    background: var(--navbar-background);
+}
+
+.navbrand{
+display: flex;
+align-content: center;
+width: 10%;
+margin-left: 20px;
+}
+
+.navbrandlink{
+    display: flex;
+    align-content: center;
+    }
+
+.navbutton{
+    display: none;
+}
+
+.navcontainer{
+    display: flex;
+    width: 90%;
+}
+
+.navlist{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+
+.navitem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px 0 10px;
+}
+
+.navlink{
+    color:var(--text-color-dark);
+    text-decoration: none;
+    font-weight: var(--text-font-bold);
 }
