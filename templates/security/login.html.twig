@@ -6,17 +6,17 @@
 <div class='logincontainer'>
     <form class='loginform' method="post">
         {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
         {% if app.user %}
-            <div class="mb-3">
-                Vous ëtes déjà connecté sous: {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se Déconnecter</a>
+            <div class="info">
+                Vous êtes déjà connecté sous: {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">se déconnecter</a>
             </div>
         {% endif %}
 
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="email" required autofocus>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
         <input type="hidden" name="_csrf_token"
             value="{{ csrf_token('authenticate') }}"
         >
@@ -25,9 +25,11 @@
         <button class="btn" type="submit">
             Se Connecter
         </button>
-        <button class="btn" type="submit">
+        <a href="{{path('app_fr_utilisateur_uti_new')}}">
+        <button class="btn" type="button">
             Créer un compte
         </button>
+        </a>
         </div>
     </form>
 </div>

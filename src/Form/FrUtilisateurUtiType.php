@@ -6,6 +6,7 @@ use App\Entity\FrUtilisateurUti;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class FrUtilisateurUtiType extends AbstractType
 {
@@ -13,7 +14,16 @@ class FrUtilisateurUtiType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('roles')
+            ->add('roles',ChoiceType::class, [
+                'choices' => [
+                    'Utilisateur' => 'ROLE_USER',
+                    // 'Employé' => 'ROLE_EMPLOYEE',
+                    'Admin' => 'ROLE_ADMIN'
+                ],
+                'help' => 'Sélectionner un rôle',
+                'multiple' => false,
+                'mapped' => false,
+            ])
             ->add('password')
             ->add('uti_nom')
             ->add('uti_prenom')

@@ -7,6 +7,18 @@
     --text-color-dark: #262626;
     --text-color-orange: #D97218;
     --text-color-bright: #fdfdfd;
+    --text-color-alert:#f32f0c;
+    --text-color-info:#D97218;
+
+    --standard-border-color:#D97218;
+    --standard-border-thickness:3px;
+    --standard-radius: 10px;
+    --large-radius: 25px;
+    --btn-radius: 40px;
+
+    --input-background-color: rgba(253, 253, 253, 0.5);
+    --line-background-color: rgba(253, 253, 253, 1);
+    --btn-background-color: #D97218;
 
     --gradient-color-bright: #f2c12e;
     --gradient-color-middle: #f2b035;
@@ -27,4 +39,41 @@ h1, h2, h3{
     font-family: "Tilt Warp", sans-serif;
     font-weight: var(--text-font-weight);
     font-style: normal;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.alert{
+    color: var(--text-color-alert);
+    font-weight: var(--text-font-bold);
+}
+
+.info{
+    color: var(--text-color-info);
+    font-weight: var(--text-font-bold);
+}
+
+input{
+    color: var(--text-color-dark);
+    font-size: 1.2rem;
+    font-weight: var(--text-font-bold);
+    background-color: var(--input-background-color);
+    border: solid var(--standard-border-color) var(--standard-border-thickness);
+    border-radius: var(--standard-radius);
+    height: 80px;
+    margin: 10px 0 10px 0;
+}
+
+.btn{
+    color: var(--text-color-dark);
+    font-size: 1.2rem;
+    font-weight: var(--text-font-bold);
+    background-color: var(--btn-background-color);
+    border-radius: var(--btn-radius);
+    width: 250px;
+    height: 70px;
+    margin: 10px;
 }
