@@ -11,7 +11,11 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $user = new FrUtilisateurUti();
-        // $manager->persist($product);
+        $user->setUtiNom('LACROIX');
+        $user->setUtiPrenom('Sylvain');
+        $user->setEmail('sylvainlacroix@protonmail.com');
+
+        $manager->persist($user);
 
         $manager->flush();
     }
