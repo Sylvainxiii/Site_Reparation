@@ -4726,9 +4726,7 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
+
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
                 }
@@ -4804,9 +4802,7 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
+
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Icu\\": ""
                 },
@@ -4890,9 +4886,7 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
+
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Idn\\": ""
                 }
@@ -4972,9 +4966,7 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
+
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
                 },
@@ -5056,9 +5048,7 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
+
                 "psr-4": {
                     "Symfony\\Polyfill\\Mbstring\\": ""
                 }
@@ -5131,9 +5121,7 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
+
                 "psr-4": {
                     "Symfony\\Polyfill\\Php83\\": ""
                 },
@@ -9655,9 +9643,7 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
+
                 "psr-4": {
                     "Symfony\\Bridge\\PhpUnit\\": ""
                 },
