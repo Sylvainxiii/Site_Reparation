@@ -1,0 +1,27 @@
+.inputcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+input{
+    color: var(--text-color-dark);
+    font-size: 1.2rem;
+    font-weight: var(--text-font-bold);
+    background-color: var(--input-background-color);
+    border: solid var(--standard-border-color) var(--standard-border-thickness);
+    border-radius: var(--standard-radius);
+    height: calc(var(--text-font-size) + 0.8vw);
+    margin: 10px 0 10px 0;
+}
+
+.btn{
+    color: var(--text-color-dark);
+    font-size: 1.2rem;
+    font-weight: var(--text-font-bold);
+    background-color: var(--btn-background-color);
+    border-radius: var(--btn-radius);
+    width: 250px;
+    height: 70px;
+    margin: 10px;
+}
