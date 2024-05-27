@@ -13,6 +13,18 @@
             "./src/Repository/.gitignore"
         ]
     },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "1f5514cfa15b947298df4d771e694e578d4c204d"
+        },
+        "files": [
+            "./src/DataFixtures/AppFixtures.php"
+        ]
+    },
     "doctrine/doctrine-migrations-bundle": {
         "version": "3.3",
         "recipe": {
@@ -36,8 +48,7 @@
         },
         "files": [
             "./.env.test",
-            "./phpunit.xml.dist",
-            "./tests/bootstrap.php"
+            "./phpunit.xml.dist"
         ]
     },
     "symfony/apache-pack": {
@@ -190,8 +201,7 @@
         "files": [
             "./.env.test",
             "./bin/phpunit",
-            "./phpunit.xml.dist",
-            "./tests/bootstrap.php"
+            "./phpunit.xml.dist"
         ]
     },
     "symfony/routing": {
@@ -228,7 +238,6 @@
             "ref": "6acd9ff4f7fd5626d2962109bd4ebab351d43c43"
         },
         "files": [
-            "./assets/bootstrap.js",
             "./assets/controllers.json",
             "./assets/controllers/hello_controller.js"
         ]

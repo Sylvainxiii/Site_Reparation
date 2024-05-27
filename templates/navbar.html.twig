@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <div class="navbrand">
+    <a class="navbrandlink" href="/"><img src="/logo/logo.svg" alt="" width="60px" height="60px" ></a>
+  </div>
+  <button class="navbutton" type="button" data-bs-toggle="collapse" data-bs-target="#SupportedContent" aria-controls="SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class=""></span>
+  </button>
+  <div class="navcontainer" id="SupportedContent">
+    <ul class="navlist">
+      <li class="navitem">
+        <a class="navlink" aria-current="page" href="/intervention/new">Réparer!</a>
+      </li>
+      {% if app.user %}
+      <li class="navitem">
+        <a class="navlink" href="/intervention/">Mes Fiches</a>
+      </li>
+        <li class="navitem">
+        <a class="navlink" href="{{path('app_fr_utilisateur_uti_show', {'id': app.user.id })}}">Mon Profil</a>
+      </li>
+      {% endif %}
+      {% if not app.user %}
+      <li class="navitem">
+        <a class="navlink" href="{{path('app_login')}}">Se Connecter</a>
+      </li>
+      {% else %}
+      <li class="navitem">
+        <a class="navlink" href="{{path('app_logout')}}"><img class="navlogout" width='30px' src='/logo/exit-logout.svg'/></a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

@@ -4,16 +4,24 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"> #}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-        {# {% block stylesheets %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Tilt+Warp&display=swap" rel="stylesheet">
+        {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
-        {% endblock %} #}
+            <link rel="stylesheet" href="{{ asset('styles/navbar.css') }}">
+            <link rel="stylesheet" href="{{ asset('styles/login.css') }}">
+            <link rel="stylesheet" href="{{ asset('styles/form.css') }}">
+        {% endblock %}
 
         {% block javascripts %}
             {{ importmap() }}
         {% endblock %}
     </head>
     <body>
+        {% if app.request.get('_route') is not same as ('app_login') %}
+        {{include('navbar.html.twig')}}
+        {% endif %}
         {% block body %}{% endblock %}
     </body>
 </html>

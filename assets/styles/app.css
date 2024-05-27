@@ -1,3 +1,57 @@
-body {
-    background-color: green;
+:root{
+    --text-font-family:"Noto Sans Display", sans-serif;
+    --text-font-weight:400;
+    --text-font-bold:600;
+    --text-font-size: 20px;
+
+    --text-color-dark: #262626;
+    --text-color-orange: #D97218;
+    --text-color-bright: #fdfdfd;
+    --text-color-alert:#f32f0c;
+    --text-color-info:#D97218;
+
+    --standard-border-color:#D97218;
+    --standard-border-thickness:3px;
+    --standard-radius: 10px;
+    --large-radius: 25px;
+    --btn-radius: 40px;
+
+    --input-background-color: rgba(253, 253, 253, 0.5);
+    --line-background-color: rgba(253, 253, 253, 1);
+    --btn-background-color: #D97218;
+
+    --gradient-color-bright: #f2c12e;
+    --gradient-color-middle: #f2b035;
+    --gradient-color-dark: #d97218;
+    --navbar-background:linear-gradient(0deg, var(--gradient-color-dark) 36%, var(--gradient-color-middle) 80%, var(--gradient-color-bright) 100%);
+}
+
+body{
+    margin: 0;
+    font-family: var(--text-font-family) ;
+    font-weight: var(--text-font-weight);
+    font-style: normal;
+    font-size: var(--text-font-size);
+    color: var(--text-color-dark);
+}
+
+h1, h2, h3{
+    font-family: "Tilt Warp", sans-serif;
+    font-weight: var(--text-font-weight);
+    font-style: normal;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.alert{
+    color: var(--text-color-alert);
+    font-weight: var(--text-font-bold);
+}
+
+.info{
+    color: var(--text-color-info);
+    font-weight: var(--text-font-bold);
 }

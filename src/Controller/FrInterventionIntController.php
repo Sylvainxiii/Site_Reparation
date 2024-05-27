@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/fr/intervention/int')]
+#[Route('/intervention')]
 class FrInterventionIntController extends AbstractController
 {
     #[Route('/', name: 'app_fr_intervention_int_index', methods: ['GET'])]
