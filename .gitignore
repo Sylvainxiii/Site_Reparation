@@ -1,6 +1,5 @@
 
 ###> symfony/framework-bundle ###
-.env
 /.env.local
 /.env.local.php
 /.env.*.local
@@ -25,3 +24,4 @@
 ###< symfony/asset-mapper ###
 
 /00-Conception/
+.env
