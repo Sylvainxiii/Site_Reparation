@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85c64f51b8c956524b918bd8d70ccf8f",
+    "content-hash": "20e14377e39907fcc4ffe254586231bc",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -4726,7 +4726,6 @@
                 }
             },
             "autoload": {
-
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
                 }
@@ -4802,7 +4801,6 @@
                 }
             },
             "autoload": {
-
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Icu\\": ""
                 },
@@ -4886,7 +4884,6 @@
                 }
             },
             "autoload": {
-
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Idn\\": ""
                 }
@@ -4966,7 +4963,6 @@
                 }
             },
             "autoload": {
-
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
                 },
@@ -5048,7 +5044,6 @@
                 }
             },
             "autoload": {
-
                 "psr-4": {
                     "Symfony\\Polyfill\\Mbstring\\": ""
                 }
@@ -5121,7 +5116,6 @@
                 }
             },
             "autoload": {
-
                 "psr-4": {
                     "Symfony\\Polyfill\\Php83\\": ""
                 },
@@ -7469,16 +7463,16 @@
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
-            "version": "3.6.0",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
-                "reference": "87f5d53708a3855aa018bf0a00d0d4b0ef58a956"
+                "reference": "d13a08ebf244f74c8adb8ff15aa55d01c404e534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/87f5d53708a3855aa018bf0a00d0d4b0ef58a956",
-                "reference": "87f5d53708a3855aa018bf0a00d0d4b0ef58a956",
+                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/d13a08ebf244f74c8adb8ff15aa55d01c404e534",
+                "reference": "d13a08ebf244f74c8adb8ff15aa55d01c404e534",
                 "shasum": ""
             },
             "require": {
@@ -7536,7 +7530,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineFixturesBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineFixturesBundle/tree/3.6.0"
+                "source": "https://github.com/doctrine/DoctrineFixturesBundle/tree/3.6.1"
             },
             "funding": [
                 {
@@ -7552,7 +7546,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-02T18:06:53+00:00"
+            "time": "2024-05-07T07:16:35+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -9643,7 +9637,6 @@
                 }
             },
             "autoload": {
-
                 "psr-4": {
                     "Symfony\\Bridge\\PhpUnit\\": ""
                 },
