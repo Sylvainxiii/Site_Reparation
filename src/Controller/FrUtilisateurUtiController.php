@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/utilisateur')]
@@ -23,13 +24,24 @@ class FrUtilisateurUtiController extends AbstractController
     }
 
     #[Route('/new', name: 'app_fr_utilisateur_uti_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $encoder): Response
     {
         $frUtilisateurUti = new FrUtilisateurUti();
         $form = $this->createForm(FrUtilisateurUtiType::class, $frUtilisateurUti);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $password=$form['password']->getData();
+            $encoded = $encoder->hashPassword($frUtilisateurUti, $password );
+            $frUtilisateurUti->setPassword($encoded);
+            
+            $avatar = $form['uti_avatar']->GetData();
+            if ($avatar !== null){
+                $avatar = base64_encode(file_get_contents($avatar));
+                $frUtilisateurUti->setUtiAvatar($avatar);}
+
+            $frUtilisateurUti->setUtiDateAdd(new \DateTime());
+                
             $entityManager->persist($frUtilisateurUti);
             $entityManager->flush();
 
@@ -42,24 +54,65 @@ class FrUtilisateurUtiController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_fr_utilisateur_uti_show', methods: ['GET'])]
-    public function show(FrUtilisateurUti $frUtilisateurUti): Response
-    {
+    #[Route('/{id}', name: 'app_fr_utilisateur_uti_show', methods: ['GET', 'POST'])]
+    public function show(Request $request, FrUtilisateurUti $frUtilisateurUti, EntityManagerInterface $entityManager, UserPasswordHasherInterface $encoder): Response
+    {   
+        $form = $this->createForm(FrUtilisateurUtiType::class, $frUtilisateurUti);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $id = $frUtilisateurUti->getId();
+
+            $password2 = $form['password2']->getData();
+            if ($password2 !== "" && $password2 !== null) {
+                //hasher le password
+                $encoded = $encoder->hashPassword($frUtilisateurUti, $password2);
+                $frUtilisateurUti->setPassword($encoded);
+            }
+
+            $avatar = $form['uti_avatar']->GetData();
+            if ($avatar !== null){
+            $avatar = base64_encode(file_get_contents($avatar));
+            $frUtilisateurUti->setUtiAvatar($avatar);}
+
+            $frUtilisateurUti->setUtiDateEdit(new \DateTime());
+
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_fr_utilisateur_uti_show', ['id' => $id], Response::HTTP_SEE_OTHER);
+        }
         return $this->render('fr_utilisateur_uti/show.html.twig', [
             'fr_utilisateur_uti' => $frUtilisateurUti,
+            'form' => $form,
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_fr_utilisateur_uti_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, FrUtilisateurUti $frUtilisateurUti, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, FrUtilisateurUti $frUtilisateurUti, EntityManagerInterface $entityManager, UserPasswordHasherInterface $encoder): Response
     {
         $form = $this->createForm(FrUtilisateurUtiType::class, $frUtilisateurUti);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
+            $id = $frUtilisateurUti->getId();
+
+            $password2 = $form['password2']->getData();
+            if ($password2 !== "" && $password2 !== null) {
+                //hasher le password
+                $encoded = $encoder->hashPassword($frUtilisateurUti, $password2);
+                $frUtilisateurUti->setPassword($encoded);
+            }
+
+            $avatar = $form['uti_avatar']->GetData();
+            if ($avatar !== null){
+            $avatar = base64_encode(file_get_contents($avatar));
+            $frUtilisateurUti->setUtiAvatar($avatar);}
+
+            $frUtilisateurUti->setUtiDateEdit(new \DateTime());
+
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_fr_utilisateur_uti_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_fr_utilisateur_uti_show', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('fr_utilisateur_uti/edit.html.twig', [

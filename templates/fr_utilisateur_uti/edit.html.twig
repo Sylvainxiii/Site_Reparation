@@ -1,13 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit FrUtilisateurUti{% endblock %}
+{% block title %}Informations Personnelles{% endblock %}
 
 {% block body %}
-    <h1>Edit FrUtilisateurUti</h1>
+    <div class='container flex-column'>
 
-    {{ include('fr_utilisateur_uti/_form.html.twig', {'button_label': 'Update'}) }}
+        {% if fr_utilisateur_uti.utiAvatar == "" %}
+            <img class='avatar' src="/logo/user.svg" alt="photo de profil" class="img-profil">
+            {% else %}
+            <img class='avatar' src="data:image/jpeg;base64,{{ fr_utilisateur_uti.utiAvatar }}" alt="photo de profil" class="img-profil">
+        {% endif %}
 
-    <a href="{{ path('app_fr_utilisateur_uti_index') }}">back to list</a>
+        <h1>Informations Personnelles</h1>
+
+        {{ include('fr_utilisateur_uti/_form.html.twig', {'button_label': 'Modifier mes données'}) }}
+
+        <a class='links' href="{{ path('app_fr_utilisateur_uti_index') }}">Retour</a>
+    </div>
 
     {{ include('fr_utilisateur_uti/_delete_form.html.twig') }}
 {% endblock %}
