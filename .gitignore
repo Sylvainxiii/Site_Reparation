@@ -24,3 +24,4 @@
 ###< symfony/asset-mapper ###
 
 /00-Conception/
+.env
