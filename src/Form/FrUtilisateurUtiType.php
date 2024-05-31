@@ -34,7 +34,7 @@ class FrUtilisateurUtiType extends AbstractType
                 'label' => 'Nom'
             ])
             ->add('uti_prenom', TextType::class, [
-                'label' => 'Préom'
+                'label' => 'Prénom'
             ])
             ->add('uti_naissance_date', DateType::class, [
                 'data' => new \DateTime(),
