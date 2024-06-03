@@ -1,6 +1,14 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .formcontainer{
-    width: 60%;
     margin: auto;
+    width: 60%;
+
 }
 
 .forminputcontainer{
