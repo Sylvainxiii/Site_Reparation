@@ -37,6 +37,10 @@ class FrUtilisateurUtiController extends AbstractController
             $frUtilisateurUti->setPassword($encoded);
 
             $frUtilisateurUti->setUtiDateAdd(new \DateTime());
+
+            $avatar = $form['uti_avatar']->GetData();
+            $avatar = base64_encode(file_get_contents($avatar));
+            $frUtilisateurUti->setUtiAvatar($avatar);
             
             $entityManager->persist($frUtilisateurUti);
             $entityManager->flush();

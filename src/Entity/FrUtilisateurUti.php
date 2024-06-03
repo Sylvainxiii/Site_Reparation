@@ -152,7 +152,7 @@ class FrUtilisateurUti implements UserInterface, PasswordAuthenticatedUserInterf
         return $this;
     }
 
-    public function getUtiAvatar(): ?string
+    public function getUtiAvatar()
     {
         return $this->uti_avatar;
     }
