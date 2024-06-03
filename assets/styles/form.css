@@ -18,38 +18,38 @@ form{
 }
 
 input{
-    color: var(--text-color-dark);
+    color: var(--color-dark);
     font-size: 1.2rem;
-    font-weight: var(--text-font-bold);
+    font-weight: var(--font-bold);
     background-color: var(--input-background-color);
-    border: solid var(--standard-border-color) var(--standard-border-thickness);
-    border-radius: var(--standard-radius);
-    height: calc(var(--text-font-size) + 0.8vw);
+    border: solid var(--border-color) var(--border-thickness);
+    border-radius: var(--radius);
+    height: calc(var(--font-size) + 0.8vw);
     margin: 10px 0 10px 0;
 }
 
 .formselect{
-    color: var(--text-color-dark);
+    color: var(--color-dark);
     font-size: 1.2rem;
-    font-weight: var(--text-font-bold);
+    font-weight: var(--font-bold);
     background-color: var(--input-background-color);
-    border: solid var(--standard-border-color) var(--standard-border-thickness);
-    border-radius: var(--standard-radius);
-    height: calc(var(--text-font-size) + 0.8vw);
+    border: solid var(--border-color) var(--border-thickness);
+    border-radius: var(--radius);
+    height: calc(var(--font-size) + 0.8vw);
     margin: 10px 0 10px 0;
 }
 
   input[type=file]::file-selector-button {
     margin-right: 8px;
     border: none;
-    background: var(--text-color-dark);
+    background: var(--color-dark);
     padding: 8px 12px;
-    color: var(--text-color-bright);
+    color: var(--color-bright);
     cursor: pointer;
   }
 
   input[type=file]::file-selector-button:hover {
-    background: var(--text-hover-color-dark);
+    background: var(--hover-color-dark);
   }
 
   input[type=file]:focus {
