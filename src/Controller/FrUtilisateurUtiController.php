@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\FrUtilisateurUti;
 use App\Form\FrUtilisateurUtiType;
 use App\Repository\FrUtilisateurUtiRepository;
+use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,6 +35,8 @@ class FrUtilisateurUtiController extends AbstractController
             $password=$form['password']->getData();
             $encoded = $encoder->hashPassword($frUtilisateurUti, $password );
             $frUtilisateurUti->setPassword($encoded);
+
+            $frUtilisateurUti->setUtiDateAdd(new \DateTime());
             
             $entityManager->persist($frUtilisateurUti);
             $entityManager->flush();
@@ -62,6 +65,8 @@ class FrUtilisateurUtiController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $frUtilisateurUti->setUtiDateEdit(new \DateTime());
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_fr_utilisateur_uti_index', [], Response::HTTP_SEE_OTHER);

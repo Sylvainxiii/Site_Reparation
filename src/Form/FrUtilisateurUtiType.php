@@ -41,7 +41,7 @@ class FrUtilisateurUtiType extends AbstractType
                 'widget' => 'single_text',
                 'label'=>'Date de Naissance'
             ])
-            // ->add('uti_avatar')
+            ->add('uti_avatar')
             // ->add('uti_date_add', DateType::class, [
             //     'data' => new \DateTime(),
             //     'widget' => 'single_text'

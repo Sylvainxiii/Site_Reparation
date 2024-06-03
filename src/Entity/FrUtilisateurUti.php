@@ -37,8 +37,8 @@ class FrUtilisateurUti implements UserInterface, PasswordAuthenticatedUserInterf
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $uti_naissance_date = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $uti_avatar = null;
+    #[ORM\Column(type: Types::BLOB, nullable: true)]
+    private $uti_avatar = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $uti_date_add = null;
