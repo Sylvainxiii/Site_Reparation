@@ -30,3 +30,21 @@ input{
     height: calc(var(--text-font-size) + 0.8vw);
     margin: 10px 0 10px 0;
 }
+
+  input[type=file]::file-selector-button {
+    margin-right: 8px;
+    border: none;
+    background: var(--text-color-dark);
+    padding: 8px 12px;
+    color: var(--text-color-bright);
+    cursor: pointer;
+  }
+
+  input[type=file]::file-selector-button:hover {
+    background: var(--text-hover-color-dark);
+  }
+
+  input[type=file]:focus {
+    outline: 5px dashed #000;
+    outline-offset: 2px;
+  }

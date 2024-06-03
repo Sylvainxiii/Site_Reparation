@@ -5,6 +5,7 @@
     --text-font-size: 20px;
 
     --text-color-dark: #262626;
+    --text-hover-color-dark: #7d7d7d;
     --text-color-orange: #D97218;
     --text-color-bright: #fdfdfd;
     --text-color-alert:#f32f0c;
@@ -63,6 +64,6 @@ a{
     background-color: var(--btn-background-color);
     border-radius: var(--btn-radius);
     width: 8vw;
-    height: 5vh;
+    height: calc(var(--text-font-size) + 2vh);
     margin: 10px;
 }
