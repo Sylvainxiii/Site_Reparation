@@ -37,8 +37,8 @@ class FrUtilisateurUti implements UserInterface, PasswordAuthenticatedUserInterf
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $uti_naissance_date = null;
 
-    #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $uti_avatar = null;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $uti_avatar = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $uti_date_add = null;
@@ -152,7 +152,7 @@ class FrUtilisateurUti implements UserInterface, PasswordAuthenticatedUserInterf
         return $this;
     }
 
-    public function getUtiAvatar()
+    public function getUtiAvatar(): ?string
     {
         return $this->uti_avatar;
     }

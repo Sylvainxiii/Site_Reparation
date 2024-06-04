@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\FrUtilisateurUti;
 use App\Form\FrUtilisateurUtiType;
 use App\Repository\FrUtilisateurUtiRepository;
-use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -56,7 +55,7 @@ class FrUtilisateurUtiController extends AbstractController
 
     #[Route('/{id}', name: 'app_fr_utilisateur_uti_show', methods: ['GET'])]
     public function show(FrUtilisateurUti $frUtilisateurUti): Response
-    {
+    {     
         return $this->render('fr_utilisateur_uti/show.html.twig', [
             'fr_utilisateur_uti' => $frUtilisateurUti,
         ]);
