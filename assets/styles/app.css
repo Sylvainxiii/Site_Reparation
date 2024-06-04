@@ -48,6 +48,18 @@ h1, h2, h3{
 a{
     text-decoration: none;
     color: inherit;
+    line-height: 2;
+}
+
+table{
+    margin: 25px 0 ;
+}
+
+th, td{
+    text-align: left;
+    padding-top: 10px;
+    padding-right: 10px;
+    border-bottom: solid var(--border-color) 1px;
 }
 
 .container{
@@ -68,6 +80,7 @@ a{
 }
 
 .btn{
+    text-align: center;
     color: var(--color-dark);
     font-size: 1.2rem;
     font-weight: var(--font-bold);
@@ -75,10 +88,13 @@ a{
     border-radius: var(--btn-radius);
     width: 8vw;
     height: calc(var(--font-size) + 2vh);
-    margin: 10px;
+    margin: 20px;
 }
 
 .links{
+    color: var(--color-bright);
+    background-color: var(--color-dark);
+    border: none;
     text-align: center;
     font-size: 0.8rem;
 }
