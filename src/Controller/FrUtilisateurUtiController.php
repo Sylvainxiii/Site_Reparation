@@ -62,12 +62,19 @@ class FrUtilisateurUtiController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_fr_utilisateur_uti_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, FrUtilisateurUti $frUtilisateurUti, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, FrUtilisateurUti $frUtilisateurUti, EntityManagerInterface $entityManager, UserPasswordHasherInterface $encoder): Response
     {
         $form = $this->createForm(FrUtilisateurUtiType::class, $frUtilisateurUti);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $password2 = $form['password']->getData();
+            if ($password2 !== "" && $password2 !== null) {
+                //hasher le password
+                $encoded = $encoder->hashPassword($frUtilisateurUti, $password2);
+                $frUtilisateurUti->setPassword($encoded);
+            }
+
             $frUtilisateurUti->setUtiDateEdit(new \DateTime());
 
             $entityManager->flush();

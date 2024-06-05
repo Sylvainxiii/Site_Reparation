@@ -7,7 +7,7 @@
         <h1>Mon compte</h1>
 
         {% if fr_utilisateur_uti.utiAvatar == "" %}
-        <img class='avatar' src="../logo/user.svg" alt="photo de profil" class="img-profil">
+        <img class='avatar' src="/logo/user.svg" alt="photo de profil" class="img-profil">
         {% else %}
         <img class='avatar' src="data:image/jpeg;base64,{{ fr_utilisateur_uti.utiAvatar }}" alt="photo de profil" class="img-profil">
         {% endif %}

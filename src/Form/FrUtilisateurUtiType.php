@@ -29,7 +29,8 @@ class FrUtilisateurUtiType extends AbstractType
             //     'multiple' => false,
             //     'mapped' => false,
             // ])
-            ->add('password', TextType::class, [
+            ->add('password',null,  [
+                'data' => '',
                 'label' => 'Mot de Passe'
             ])
             ->add('uti_nom', TextType::class, [
@@ -52,13 +53,13 @@ class FrUtilisateurUtiType extends AbstractType
                 ],
                 'constraints' => [
                     new File([
-                        'maxSize' => '1024K',
+                        'maxSize' => '150K',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png'
                         ],
                         'mimeTypesMessage' => 'Merci de charger un fichier jpg ou png',
-                        'uploadFormSizeErrorMessage' => 'La taille max autorisée est de 1024Ko!'
+                        'uploadFormSizeErrorMessage' => 'La taille max autorisée est de 150Ko!'
                     ])
                 ]
             ])
