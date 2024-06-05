@@ -66,9 +66,11 @@ class FrUtilisateurUtiController extends AbstractController
     {
         $form = $this->createForm(FrUtilisateurUtiType::class, $frUtilisateurUti);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
-            $password2 = $form['password']->getData();
+            $id = $frUtilisateurUti->getId();
+
+            $password2 = $form['password2']->getData();
             if ($password2 !== "" && $password2 !== null) {
                 //hasher le password
                 $encoded = $encoder->hashPassword($frUtilisateurUti, $password2);
@@ -79,7 +81,7 @@ class FrUtilisateurUtiController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_fr_utilisateur_uti_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_fr_utilisateur_uti_show', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('fr_utilisateur_uti/edit.html.twig', [
