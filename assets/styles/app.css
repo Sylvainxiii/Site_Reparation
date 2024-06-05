@@ -62,9 +62,16 @@ th, td{
     border-bottom: solid var(--border-color) 1px;
 }
 
-.container{
+.flex-row{
+    display: flex;
+}
+
+.flex-column{
     display: flex;
     flex-direction: column;
+}
+
+.container{
     justify-content: flex-start;
     align-items: center;
 }

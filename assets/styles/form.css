@@ -1,6 +1,4 @@
 form{
-    display: flex;
-    flex-direction: column;
     align-items: center;
     width: 100%;
 }
@@ -12,8 +10,6 @@ form{
 }
 
 .forminputcontainer{
-    display: flex;
-    flex-direction: column;
     justify-content: flex-start;
 }
 

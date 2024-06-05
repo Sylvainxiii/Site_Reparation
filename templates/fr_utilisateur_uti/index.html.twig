@@ -3,7 +3,7 @@
 {% block title %}Gestion Utilisateur{% endblock %}
 
 {% block body %}
-    <h1>FrUtilisateurUti index</h1>
+    <h1>Gestion des Utilisateurs</h1>
 
     <table class="table">
         <thead>
@@ -11,14 +11,13 @@
                 <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Password</th>
-                <th>Uti_nom</th>
-                <th>Uti_prenom</th>
-                <th>Uti_naissance_date</th>
-                {# <th>Uti_avatar</th> #}
-                <th>Uti_date_add</th>
-                <th>Uti_date_edit</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date de naissance</th>
+                <th>Uti_avatar</th>
+                <th>Date d'ajout</th>
+                <th>Date d'édition</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,11 +26,14 @@
                 <td>{{ fr_utilisateur_uti.id }}</td>
                 <td>{{ fr_utilisateur_uti.email }}</td>
                 <td>{{ fr_utilisateur_uti.roles ? fr_utilisateur_uti.roles|json_encode : '' }}</td>
-                <td>{{ fr_utilisateur_uti.password }}</td>
                 <td>{{ fr_utilisateur_uti.utiNom }}</td>
                 <td>{{ fr_utilisateur_uti.utiPrenom }}</td>
                 <td>{{ fr_utilisateur_uti.utiNaissanceDate ? fr_utilisateur_uti.utiNaissanceDate|date('Y-m-d') : '' }}</td>
-                <td>{{ fr_utilisateur_uti.utiAvatar }}</td>
+                {% if fr_utilisateur_uti.utiAvatar == "" %}
+                <td><img class='avatar' src="/logo/user.svg" alt="photo de profil" class="img-profil"></td>
+                {% else %}
+                <td><img class='avatar' src="data:image/jpeg;base64,{{ fr_utilisateur_uti.utiAvatar }}" alt="photo de profil" class="img-profil"></td>
+                {% endif %}
                 <td>{{ fr_utilisateur_uti.utiDateAdd ? fr_utilisateur_uti.utiDateAdd|date('Y-m-d') : '' }}</td>
                 <td>{{ fr_utilisateur_uti.utiDateEdit ? fr_utilisateur_uti.utiDateEdit|date('Y-m-d') : '' }}</td>
                 <td>

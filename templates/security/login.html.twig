@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class='logincontainer'>
-    <form class='loginform' method="post">
+    <form class='loginform flex-column' method="post">
         {% if error %}
             <div class="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -21,7 +21,7 @@
             value="{{ csrf_token('authenticate') }}"
         >
 
-        <div class='logincontainerbtn'>
+        <div class='logincontainerbtn flex-row'>
         <button class="btn" type="submit">
             Se Connecter
         </button>

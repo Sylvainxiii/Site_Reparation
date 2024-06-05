@@ -370,7 +370,7 @@
     {%- if help is not empty -%}
         {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
     {%- endif -%}
-    <div class='forminputcontainer' {% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
+    <div class='forminputcontainer flex-column' {% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
         {{- form_label(form) -}}
         {{- form_errors(form) -}}
         {{- form_widget(form, widget_attr) -}}
@@ -404,7 +404,7 @@
     {%- else -%}
         {% set form_method = "POST" %}
     {%- endif -%}
-    <form{% if name != '' %} name="{{ name }}"{% endif %} method="{{ form_method|lower }}"{% if action != '' %} action="{{ action }}"{% endif %}{{ block('attributes') }}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+    <form class='flex-column' {% if name != '' %} name="{{ name }}"{% endif %} method="{{ form_method|lower }}"{% if action != '' %} action="{{ action }}"{% endif %}{{ block('attributes') }}{% if multipart %} enctype="multipart/form-data"{% endif %}>
     {%- if form_method != method -%}
         <input type="hidden" name="_method" value="{{ method }}" />
     {%- endif -%}
