@@ -34,13 +34,14 @@ class FrUtilisateurUtiController extends AbstractController
             $password=$form['password']->getData();
             $encoded = $encoder->hashPassword($frUtilisateurUti, $password );
             $frUtilisateurUti->setPassword($encoded);
+            
+            $avatar = $form['uti_avatar']->GetData();
+            if ($avatar !== null){
+                $avatar = base64_encode(file_get_contents($avatar));
+                $frUtilisateurUti->setUtiAvatar($avatar);}
 
             $frUtilisateurUti->setUtiDateAdd(new \DateTime());
-
-            $avatar = $form['uti_avatar']->GetData();
-            $avatar = base64_encode(file_get_contents($avatar));
-            $frUtilisateurUti->setUtiAvatar($avatar);
-            
+                
             $entityManager->persist($frUtilisateurUti);
             $entityManager->flush();
 
@@ -53,11 +54,36 @@ class FrUtilisateurUtiController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_fr_utilisateur_uti_show', methods: ['GET'])]
-    public function show(FrUtilisateurUti $frUtilisateurUti): Response
-    {     
+    #[Route('/{id}', name: 'app_fr_utilisateur_uti_show', methods: ['GET', 'POST'])]
+    public function show(Request $request, FrUtilisateurUti $frUtilisateurUti, EntityManagerInterface $entityManager, UserPasswordHasherInterface $encoder): Response
+    {   
+        $form = $this->createForm(FrUtilisateurUtiType::class, $frUtilisateurUti);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $id = $frUtilisateurUti->getId();
+
+            $password2 = $form['password2']->getData();
+            if ($password2 !== "" && $password2 !== null) {
+                //hasher le password
+                $encoded = $encoder->hashPassword($frUtilisateurUti, $password2);
+                $frUtilisateurUti->setPassword($encoded);
+            }
+
+            $avatar = $form['uti_avatar']->GetData();
+            if ($avatar !== null){
+            $avatar = base64_encode(file_get_contents($avatar));
+            $frUtilisateurUti->setUtiAvatar($avatar);}
+
+            $frUtilisateurUti->setUtiDateEdit(new \DateTime());
+
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_fr_utilisateur_uti_show', ['id' => $id], Response::HTTP_SEE_OTHER);
+        }
         return $this->render('fr_utilisateur_uti/show.html.twig', [
             'fr_utilisateur_uti' => $frUtilisateurUti,
+            'form' => $form,
         ]);
     }
 
@@ -76,6 +102,11 @@ class FrUtilisateurUtiController extends AbstractController
                 $encoded = $encoder->hashPassword($frUtilisateurUti, $password2);
                 $frUtilisateurUti->setPassword($encoded);
             }
+
+            $avatar = $form['uti_avatar']->GetData();
+            if ($avatar !== null){
+            $avatar = base64_encode(file_get_contents($avatar));
+            $frUtilisateurUti->setUtiAvatar($avatar);}
 
             $frUtilisateurUti->setUtiDateEdit(new \DateTime());
 

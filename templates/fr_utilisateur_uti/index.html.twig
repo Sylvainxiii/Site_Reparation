@@ -37,7 +37,6 @@
                 <td>{{ fr_utilisateur_uti.utiDateAdd ? fr_utilisateur_uti.utiDateAdd|date('Y-m-d') : '' }}</td>
                 <td>{{ fr_utilisateur_uti.utiDateEdit ? fr_utilisateur_uti.utiDateEdit|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_fr_utilisateur_uti_show', {'id': fr_utilisateur_uti.id}) }}">show</a>
                     <a href="{{ path('app_fr_utilisateur_uti_edit', {'id': fr_utilisateur_uti.id}) }}">edit</a>
                 </td>
             </tr>
@@ -49,5 +48,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_fr_utilisateur_uti_new') }}">Create new</a>
+    <a class= 'btn' href="{{ path('app_fr_utilisateur_uti_new') }}">Create new</a>
 {% endblock %}

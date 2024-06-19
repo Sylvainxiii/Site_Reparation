@@ -15,7 +15,7 @@
 
         {{ include('fr_utilisateur_uti/_form.html.twig', {'button_label': 'Modifier mes données'}) }}
 
-        <a class='links' href="{{ path('app_fr_utilisateur_uti_show', {'id': fr_utilisateur_uti.id}) }}">Retour</a>
+        <a class='links' href="{{ path('app_fr_utilisateur_uti_index') }}">Retour</a>
     </div>
 
     {{ include('fr_utilisateur_uti/_delete_form.html.twig') }}

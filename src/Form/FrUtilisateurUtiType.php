@@ -22,16 +22,6 @@ class FrUtilisateurUtiType extends AbstractType
     {
     $builder
         ->add('email')
-        // ->add('roles',ChoiceType::class, [
-        //     'choices' => [
-        //         'Utilisateur' => 'ROLE_USER',
-        //         // 'Employé' => 'ROLE_EMPLOYEE',
-        //         'Admin' => 'ROLE_ADMIN'
-        //     ],
-        //     'placeholder' => 'Sélectionner un rôle',
-        //     'multiple' => false,
-        //     'mapped' => false,
-        // ])
         ->add('uti_nom', TextType::class, [
             'label' => 'Nom'
         ])
@@ -39,7 +29,6 @@ class FrUtilisateurUtiType extends AbstractType
             'label' => 'Prénom'
         ])
         ->add('uti_naissance_date', DateType::class, [
-            'data' => new \DateTime(),
             'widget' => 'single_text',
             'label'=>'Date de Naissance'
         ])
@@ -67,6 +56,7 @@ class FrUtilisateurUtiType extends AbstractType
         {
             $user = $event->getData();
             $form = $event->getForm();
+            $role = $user->getRoles();
             //vérifier si on est en mode création
             if(!$user || null === $user ->getId()){
                 //en mode création
@@ -80,6 +70,19 @@ class FrUtilisateurUtiType extends AbstractType
                 $form->add('password2',null, [
                     'mapped' => false,
                     'label' => 'Mot de Passe'
+                ]);
+            }
+
+            if($role[0] == 'ROLE_ADMIN'){
+                $form->add('roles',ChoiceType::class, [
+                    'choices' => [
+                        'Utilisateur' => 'ROLE_USER',
+                        // 'Employé' => 'ROLE_EMPLOYEE',
+                        'Admin' => 'ROLE_ADMIN'
+                    ],
+                    'placeholder' => 'Sélectionner un rôle',
+                    'multiple' => false,
+                    'mapped' => false,
                 ]);
             }
         });

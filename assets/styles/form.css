@@ -39,7 +39,7 @@ input{
     margin-right: 8px;
     border: none;
     background: var(--color-dark);
-    padding: 8px 12px;
+    height: 100%;
     color: var(--color-bright);
     cursor: pointer;
   }
