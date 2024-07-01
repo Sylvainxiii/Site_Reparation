@@ -43,7 +43,7 @@ margin-left: 20px;
 }
 
 .navlink{
-    color:var(--text-color-dark);
+    color:var(--color-dark);
     text-decoration: none;
-    font-weight: var(--text-font-bold);
+    font-weight: var(--font-bold);
 }

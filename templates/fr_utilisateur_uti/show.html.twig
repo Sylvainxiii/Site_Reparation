@@ -1,58 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}FrUtilisateurUti{% endblock %}
+{% block title %}Mon Profil{% endblock %}
 
 {% block body %}
-    <h1>FrUtilisateurUti</h1>
+    <div class='container flex-column'>
+        <h1>Mon compte</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ fr_utilisateur_uti.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ fr_utilisateur_uti.email }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ fr_utilisateur_uti.roles ? fr_utilisateur_uti.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ fr_utilisateur_uti.password }}</td>
-            </tr>
-            <tr>
-                <th>Uti_nom</th>
-                <td>{{ fr_utilisateur_uti.utiNom }}</td>
-            </tr>
-            <tr>
-                <th>Uti_prenom</th>
-                <td>{{ fr_utilisateur_uti.utiPrenom }}</td>
-            </tr>
-            <tr>
-                <th>Uti_naissance_date</th>
-                <td>{{ fr_utilisateur_uti.utiNaissanceDate ? fr_utilisateur_uti.utiNaissanceDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Uti_avatar</th>
-                <td>{{ fr_utilisateur_uti.utiAvatar }}</td>
-            </tr>
-            <tr>
-                <th>Uti_date_add</th>
-                <td>{{ fr_utilisateur_uti.utiDateAdd ? fr_utilisateur_uti.utiDateAdd|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Uti_date_edit</th>
-                <td>{{ fr_utilisateur_uti.utiDateEdit ? fr_utilisateur_uti.utiDateEdit|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+        {% if fr_utilisateur_uti.utiAvatar == "" %}
+        <img class='avatar' src="/logo/user.svg" alt="photo de profil" class="img-profil">
+        {% else %}
+        <img class='avatar' src="data:image/jpeg;base64,{{ fr_utilisateur_uti.utiAvatar }}" alt="photo de profil" class="img-profil">
+        {% endif %}
 
-    <a href="{{ path('app_fr_utilisateur_uti_index') }}">back to list</a>
+        {{ include('fr_utilisateur_uti/_form.html.twig', {'button_label': 'Modifier mes données'}) }}
 
-    <a href="{{ path('app_fr_utilisateur_uti_edit', {'id': fr_utilisateur_uti.id}) }}">edit</a>
+        <a class='links' href="{{ path('app_fr_utilisateur_uti_show', {'id': fr_utilisateur_uti.id}) }}">Retour</a>
+    </div>
 
     {{ include('fr_utilisateur_uti/_delete_form.html.twig') }}
 {% endblock %}
