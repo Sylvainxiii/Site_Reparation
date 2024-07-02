@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/fr/categorie/cat')]
+#[Route('/categorie')]
 class FrCategorieCatController extends AbstractController
 {
     #[Route('/', name: 'app_fr_categorie_cat_index', methods: ['GET'])]
@@ -71,7 +71,7 @@ class FrCategorieCatController extends AbstractController
     #[Route('/{id}', name: 'app_fr_categorie_cat_delete', methods: ['POST'])]
     public function delete(Request $request, FrCategorieCat $frCategorieCat, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$frCategorieCat->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $frCategorieCat->getId(), $request->request->get('_token'))) {
             $entityManager->remove($frCategorieCat);
             $entityManager->flush();
         }

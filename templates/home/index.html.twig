@@ -1,16 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Réparations Audio
+{% endblock %}
 
 {% block body %}
 
-<div >
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<div class="container flex-column fond-img">
+		<h1 class="orange">N'ayez plus peur de réparer vos appareils!</h1>
+		<input type='text' value='Effectuer une recherche par mot clé'>
+	</div>
+	<div class="container flex-row grad">
+		{% for category in fr_categorie_cats %}
+			<div>
+				{{category.CatNom}}
+			</div>
+		{% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/laragon/www/Site_Reparation/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>C:/laragon/www/Site_Reparation/templates/home/index.html.twig</code></li>
-    </ul>
-</div>
+
+	</div>
 {% endblock %}

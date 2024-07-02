@@ -1,54 +1,54 @@
-form{
-    align-items: center;
-    width: 100%;
+form {
+  align-items: center;
+  width: 100%;
 }
 
-.formcontainer{
-    margin: auto;
-    width: 60%;
+.formcontainer {
+  margin: auto;
+  width: 60%;
 
 }
 
-.forminputcontainer{
-    justify-content: flex-start;
+.forminputcontainer {
+  justify-content: flex-start;
 }
 
-input{
-    color: var(--color-dark);
-    font-size: 1.2rem;
-    font-weight: var(--font-bold);
-    background-color: var(--input-background-color);
-    border: solid var(--border-color) var(--border-thickness);
-    border-radius: var(--radius);
-    height: calc(var(--font-size) + 0.8vw);
-    margin: 10px 0 10px 0;
+input {
+  color: var(--color-dark);
+  font-size: 1.2rem;
+  font-weight: var(--font-bold);
+  background-color: var(--input-background-color);
+  border: solid var(--border-color) var(--border-thickness);
+  border-radius: var(--radius);
+  height: calc(var(--font-size) + 0.8vw);
+  margin: 10px 0 10px 0;
 }
 
-.formselect{
-    color: var(--color-dark);
-    font-size: 1.2rem;
-    font-weight: var(--font-bold);
-    background-color: var(--input-background-color);
-    border: solid var(--border-color) var(--border-thickness);
-    border-radius: var(--radius);
-    height: calc(var(--font-size) + 0.8vw);
-    margin: 10px 0 10px 0;
+.formselect {
+  color: var(--color-dark);
+  font-size: 1.2rem;
+  font-weight: var(--font-bold);
+  background-color: var(--input-background-color);
+  border: solid var(--border-color) var(--border-thickness);
+  border-radius: var(--radius);
+  height: calc(var(--font-size) + 0.8vw);
+  margin: 10px 0 10px 0;
 }
 
-  input[type=file]::file-selector-button {
-    margin-right: 8px;
-    border: none;
-    background: var(--color-dark);
-    height: 100%;
-    color: var(--color-bright);
-    cursor: pointer;
-  }
+input[type=file]::file-selector-button {
+  margin-right: 8px;
+  border: none;
+  background: var(--color-dark);
+  height: 100%;
+  color: var(--color-bright);
+  cursor: pointer;
+}
 
-  input[type=file]::file-selector-button:hover {
-    background: var(--hover-color-dark);
-  }
+input[type=file]::file-selector-button:hover {
+  background: var(--hover-color-dark);
+}
 
-  input[type=file]:focus {
-    outline: 5px dashed #000;
-    outline-offset: 2px;
-  }
+input[type=file]:focus {
+  outline: 5px dashed #000;
+  outline-offset: 2px;
+}

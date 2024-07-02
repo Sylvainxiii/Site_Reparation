@@ -1,49 +1,36 @@
-
-.navbar{
-    display: flex;
-    flex-direction: row;
-    background: var(--navbar-background);
+.navbrand {
+    align-content: center;
+    width: 10%;
+    margin-left: 20px;
 }
 
-.navbrand{
-display: flex;
-align-content: center;
-width: 10%;
-margin-left: 20px;
-}
-
-.navbrandlink{
-    display: flex;
+.navbrandlink {
     align-items: center;
-    }
+}
 
-.navbutton{
+.navbutton {
     display: none;
 }
 
-.navcontainer{
-    display: flex;
+.navcontainer {
     width: 90%;
 }
 
-.navlist{
-    display: flex;
-    flex-direction: row;
+.navlist {
     justify-content: flex-end;
     width: 100%;
     list-style-type: none;
     padding: 0;
 }
 
-.navitem{
-    display: flex;
+.navitem {
     justify-content: center;
     align-items: center;
     margin: 0 10px 0 10px;
 }
 
-.navlink{
-    color:var(--color-dark);
+.navlink {
+    color: var(--color-dark);
     text-decoration: none;
     font-weight: var(--font-bold);
 }
