@@ -42,7 +42,6 @@ h2,
 h3 {
     text-align: center;
     font-family: "Tilt Warp", sans-serif;
-    font-size: 2.3rem;
     font-weight: var(--font-weight);
     font-style: normal;
     width: fit-content;
@@ -76,8 +75,17 @@ td {
     flex-direction: column;
 }
 
-.container {
+.center {
+    justify-content: center;
+}
+
+.flex-start {
     justify-content: flex-start;
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -125,4 +133,9 @@ td {
 
 .orange {
     color: var(--color-orange);
+}
+
+.orange-border {
+    border: solid var(--border-color) var(--border-thickness);
+    border-radius: var(--radius);
 }

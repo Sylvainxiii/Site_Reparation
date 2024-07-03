@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Tilt+Warp&display=swap" rel="stylesheet">
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
-            <link rel="stylesheet" href="{{ asset('styles/navbar.css') }}">
-            <link rel="stylesheet" href="{{ asset('styles/login.css') }}">
-            <link rel="stylesheet" href="{{ asset('styles/form.css') }}">
-            <link rel="stylesheet" href="{{ asset('styles/profil.css') }}">
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Tilt+Warp&display=swap" rel="stylesheet">
+		{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+			<link rel="stylesheet" href="{{ asset('styles/navbar.css') }}">
+			<link rel="stylesheet" href="{{ asset('styles/login.css') }}">
+			<link rel="stylesheet" href="{{ asset('styles/form.css') }}">
+			<link rel="stylesheet" href="{{ asset('styles/profil.css') }}">
+			<link rel="stylesheet" href="{{ asset('styles/index.css') }}">
+		{% endblock %}
 
-        {% block javascripts %}
-            {{ importmap() }}
-        {% endblock %}
-    </head>
-    <body>
-        {% if app.request.get('_route') is not same as ('app_login') %}
-        {{include('navbar.html.twig')}}
-        {% endif %}
-        {% block body %}{% endblock %}
-    </body>
+		{% block javascripts %}
+			{{ importmap() }}
+		{% endblock %}
+	</head>
+	<body>
+		{% if app.request.get('_route') is not same as ('app_login') %}
+			{{include('navbar.html.twig')}}
+		{% endif %}
+		{% block body %}{% endblock %}
+	</body>
 </html>
