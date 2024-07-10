@@ -27,6 +27,10 @@
     --gradient-background: linear-gradient(0deg, var(--gradient-color-dark) 36%, var(--gradient-color-middle) 80%, var(--gradient-color-bright) 100%);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: var(--font-family);

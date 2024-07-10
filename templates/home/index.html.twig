@@ -5,20 +5,21 @@
 
 {% block body %}
 
-	<div class="flex-start flex-column fond-img">
-		<h1 class="orange">N'ayez plus peur de réparer vos appareils!</h1>
-		<div class="flex-row center">
-			<input type='text' placeholder='Marque, Ref...'>
+<div class="flex-start flex-column fond-img">
+	<h1 class="orange">N'ayez plus peur de réparer vos appareils!</h1>
+	<div class="flex-row center">
+		<input type='text' placeholder='Marque, Ref...'>
+	</div>
+</div>
+<div class="center flex-row grad">
+	{% for category in fr_categorie_cats %}
+		<div class="navitem">
+			<a class="navlink" href="">{{category.CatNom}}</a>
 		</div>
-	</div>
-	<div class="center flex-row grad">
-		{% for category in fr_categorie_cats %}
-			<div class="navitem">
-				<a class="navlink" href="">{{category.CatNom}}</a>
-			</div>
-		{% endfor %}
-	</div>
+	{% endfor %}
+</div>
 
+{% if app.user %}
 	<div class="center flex-row" id="index-recap">
 		<div class="flex-start flex-row orange-border" id="index-recap-fiche">
 			<img id="index-recap-fiche-img" src="img/scott-pro-70.jpg">
@@ -55,4 +56,28 @@
 			</div>
 		</div>
 	</div>
-{% endblock %}
+{% else %}
+	<div class="flex-start flex-column orange-border" id="index-liste">
+		<h3 class="orange">Réparations à la Une</h3>
+		<div class="space-between flex-row recap-element">
+			<div>Ampli 1</div>
+			<div>25/09/2023</div>
+		</div>
+		<div class="space-between flex-row recap-element">
+			<div>Ampli 1</div>
+			<div>25/09/2023</div>
+		</div>
+		<div class="space-between flex-row recap-element">
+			<div>Ampli 2</div>
+			<div>25/09/2023</div>
+		</div>
+		<div class="space-between flex-row recap-element">
+			<div>Platine 1</div>
+			<div>25/09/2023</div>
+		</div>
+		<div class="space-between flex-row recap-element">
+			<div>Lecteur 1</div>
+			<div>25/09/2023</div>
+		</div>
+	</div>
+</div>{% endif %}{% endblock %}
