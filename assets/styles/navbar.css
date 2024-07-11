@@ -1,35 +1,35 @@
-.navbrand {
+.navbar-brand {
     align-content: center;
     width: 10%;
     margin-left: 20px;
 }
 
-.navbrandlink {
+.navbar-link {
     align-items: center;
 }
 
-.navbutton {
+.navbar-button {
     display: none;
 }
 
-.navcontainer {
+.navbar-container {
     width: 90%;
 }
 
-.navlist {
+.navbar-list {
     justify-content: flex-end;
     width: 100%;
     list-style-type: none;
     padding: 0;
 }
 
-.navitem {
+.navbar-item {
     justify-content: center;
     align-items: center;
     margin: 0 10px 0 10px;
 }
 
-.navlink {
+.navbar-link {
     color: var(--color-dark);
     text-decoration: none;
     font-weight: var(--font-bold);
