@@ -1,32 +1,36 @@
-<nav class="flex-row grad" id="navbarDesktop">
-	<div class="navbar-brand flex-row">
-		<a class="navbar-link flex-row" href="/"><img src="logo/logo.svg" alt="" width="60px" height="60px"></a>
-	</div>
-	<button class="navbar-button" type="button" data-bs-toggle="collapse" data-bs-target="#SupportedContent" aria-controls="SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class=""></span>
-	</button>
-	<div class="navbar-container flex-row" id="SupportedContent">
-		<ul class="navbar-list flex-row">
+<input type="checkbox" id="navbar-bouton"/>
+<label for="navbar-bouton" class="navbar-bouton">
+	<span></span>
+	<span></span>
+	<span></span>
+</label>
+
+
+<nav class="flex-row-responsive grad">
+	<a class="navbar-icon flex-row center" href="/">
+		<img src="logo/logo.svg" alt="" class="navbar-logo">
+	</a>
+
+	<ul class="navbar-list flex-row-responsive flex-end">
+		<li class="navbar-item flex-row">
+			<a class="navbar-link" aria-current="page" href="/intervention/new">Réparer!</a>
+		</li>
+		{% if app.user %}
 			<li class="navbar-item flex-row">
-				<a class="navbar-link" aria-current="page" href="/intervention/new">Réparer!</a>
+				<a class="navbar-link" href="/intervention/">Mes Fiches</a>
 			</li>
-			{% if app.user %}
-				<li class="navbar-item flex-row">
-					<a class="navbar-link" href="/intervention/">Mes Fiches</a>
-				</li>
-				<li class="navbar-item flex-row">
-					<a class="navbar-link" href="{{path('app_fr_utilisateur_uti_show', {'id': app.user.id })}}">Mon Profil</a>
-				</li>
-			{% endif %}
-			{% if not app.user %}
-				<li class="navbar-item flex-row">
-					<a class="navbar-link" href="{{path('app_login')}}">Se Connecter</a>
-				</li>
-			{% else %}
-				<li class="navbar-item flex-row">
-					<a class="navbar-link" href="{{path('app_logout')}}"><img id="navbar-logout" width='30px' src='/logo/exit-logout.svg'/></a>
-				</li>
-			{% endif %}
-		</ul>
-	</div>
+			<li class="navbar-item flex-row">
+				<a class="navbar-link" href="{{path('app_fr_utilisateur_uti_show', {'id': app.user.id })}}">Mon Profil</a>
+			</li>
+		{% endif %}
+		{% if not app.user %}
+			<li class="navbar-item flex-row">
+				<a class="navbar-link" href="{{path('app_login')}}">Se Connecter</a>
+			</li>
+		{% else %}
+			<li class="navbar-item flex-row">
+				<a class="navbar-icon flex-row center" href="{{path('app_logout')}}"><img id="navbar-logout" width='30px' src='/logo/exit-logout.svg'/></a>
+			</li>
+		{% endif %}
+	</ul>
 </nav>
