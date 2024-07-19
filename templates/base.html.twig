@@ -11,16 +11,11 @@
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Tilt+Warp&display=swap" rel="stylesheet">
 		<link rel="icon" href="logo/logo.svg"/>
 		{% block stylesheets %}
-			<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
-			<link rel="stylesheet" href="{{ asset('styles/navbar.css') }}">
-			<link rel="stylesheet" href="{{ asset('styles/login.css') }}">
-			<link rel="stylesheet" href="{{ asset('styles/form.css') }}">
-			<link rel="stylesheet" href="{{ asset('styles/profil.css') }}">
-			<link rel="stylesheet" href="{{ asset('styles/index.css') }}">
+			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
 
 		{% block javascripts %}
-			{{ importmap() }}
+			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
 	<body>
