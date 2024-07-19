@@ -1,12 +1,12 @@
-.logincontainer{
+.logincontainer {
     position: relative;
-    background-image: url(/img/background.jpg);
+    background-image: url(/public/img/background.jpg);
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
 }
 
-.loginform{
+.loginform {
     position: absolute;
     top: 60vh;
     left: 30vw;
@@ -15,7 +15,7 @@
     width: 40vw;
 }
 
-.logincontainerbtn{
+.logincontainerbtn {
     justify-content: center;
     align-items: center;
 }
